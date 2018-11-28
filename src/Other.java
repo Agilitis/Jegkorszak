@@ -8,8 +8,11 @@ public class Other extends Player {
 
     @Override
     void movePlayer(Direction direction) {
-        Field moveHere = field.getNeighboor(direction);
-        moveHere.accept(this, direction);
+        if(!isParalyzed){
+            Field moveHere = field.getNeighboor(direction);
+            moveHere.accept(this, direction);
+        }
+
     }
 
     @Override
@@ -32,6 +35,10 @@ public class Other extends Player {
     @Override
     protected void handleIceCubeNeighborArrival() {
         iceCubeCallback();
+    }
+    Other(Field placeHere){
+        this.field = placeHere;
+        this.field.setThingOnField(this);
     }
 
     void iceCubeCallback(){

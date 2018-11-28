@@ -1,8 +1,10 @@
 public class First extends Player {
     @Override
     void movePlayer(Direction direction) {
-        Field moveHere = field.getNeighboor(direction);
-        moveHere.accept(this,direction);
+        if(!isParalyzed){
+            Field moveHere = field.getNeighboor(direction);
+            moveHere.accept(this, direction);
+        }
     }
 
     @Override
@@ -13,6 +15,10 @@ public class First extends Player {
 
     }
 
+    First(Field placeHere){
+        this.field = placeHere;
+        this.field.setThingOnField(this);
+    }
     @Override
     protected void interactWithNeighbors(Other other) {
 

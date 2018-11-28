@@ -32,15 +32,26 @@ public class Paralyzer extends Thread{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            paraylzedPlayers.forEach((player,count)->{
-                count--;
-                if(count == 0){
-                    player.deParalyze();
-                    paraylzedPlayers.remove(player);
-                }
-            });
+            if(!paraylzedPlayers.isEmpty()){
+                checkForFreePlayers();
+            }
+
         }
 
 
+    }
+
+    private synchronized void checkForFreePlayers() {
+        paraylzedPlayers.forEach((player,count)->{
+            System.out.println(count);
+            paraylzedPlayers.put(player, --count);
+            if(count <= 0){
+                player.deParalyze();
+            }
+        });
+    }
+
+    synchronized void removePlayer(Player player) {
+        paraylzedPlayers.remove(player);
     }
 }
