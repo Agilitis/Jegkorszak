@@ -29,9 +29,10 @@ public class First extends Player {
         t.hitByFirst(this, direction);
     }
 
+
     @Override
     protected void hitByOther(Other other, Direction direction) {
-
+        field.setThingOnField(new IceCube(field));
     }
 
     @Override
