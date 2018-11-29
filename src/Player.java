@@ -15,4 +15,6 @@ public abstract class Player extends Thing {
         Paralyzer.getInstance().removePlayer(this);
         isParalyzed = false;
     }
+
+    public abstract void incraseUnitCounter();
 }

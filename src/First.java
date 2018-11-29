@@ -15,6 +15,11 @@ public class First extends Player {
 
     }
 
+    @Override
+    public void incraseUnitCounter() {
+
+    }
+
     First(Field placeHere){
         this.field = placeHere;
         this.field.setThingOnField(this);

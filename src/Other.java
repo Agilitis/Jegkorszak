@@ -28,6 +28,11 @@ public class Other extends Player {
     }
 
     @Override
+    public void incraseUnitCounter() {
+        Game.getInstance().setOtherCounter(Game.getInstance().getFirstCounter()+1);
+    }
+
+    @Override
     protected void interactWithNeighbors(Other other) {
 
     }
@@ -71,7 +76,7 @@ public class Other extends Player {
 
     @Override
     protected void hitByIceCube(IceCube iceCube, Direction direction) {
-
+        iceCube.stopMovement();
     }
 
 

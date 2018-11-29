@@ -1,4 +1,34 @@
 public class Game {
+    public int getFirstCounter() {
+        return firstCounter;
+    }
+
+    public void setFirstCounter(int firstCounter) {
+        this.firstCounter = firstCounter;
+    }
+
+    public int getOtherCounter() {
+        return otherCounter;
+    }
+
+    public void setOtherCounter(int otherCounter) {
+        this.otherCounter = otherCounter;
+    }
+
+    private int firstCounter = 0;
+    private int otherCounter = 0;
+    private static Game instance = null;
+
+    private Game(){
+
+    }
+
+    static Game getInstance(){
+        if(instance == null){
+            instance = new Game();
+        }
+        return instance;
+    }
 
     public static void main(String[] args) {
         Field f1 = new Field();
@@ -86,12 +116,15 @@ public class Game {
         f16.addNeighboor(Direction.LEFT, f15);
         f16.addNeighboor(Direction.UP, f12);
 
-        Other other = new Other(f1);
-//        IceCube i2 = new IceCube(f2);
+        Other other = new Other(f2);
+        IceCube i1 = new IceCube(f5);
+        IceCube i2 = new IceCube(f7);
+        IceCube i3 = new IceCube(f10);
+        IceCube i4 = new IceCube(f3);
 //        Boulder b1 = new Boulder(f3);
-        Trap trap1 = new Trap(f2);
-        other.movePlayer(Direction.RIGHT);
-        other.movePlayer(Direction.LEFT);
+        other.movePlayer(Direction.DOWN);
+        i4.move(Direction.LEFT);
+
     }
 
     void startGame() {
@@ -101,5 +134,13 @@ public class Game {
     void endGame() {
 
     }
+
+    void addPlayer(Player player){
+        player.incraseUnitCounter();
+    }
+
+
+
+    void addFirst(){}
 
 }
