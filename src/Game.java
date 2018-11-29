@@ -1,17 +1,17 @@
 public class Game {
-    public int getFirstCounter() {
+    int getFirstCounter() {
         return firstCounter;
     }
 
-    public void setFirstCounter(int firstCounter) {
-        this.firstCounter = firstCounter;
+    void setFirstCounter(int firstCounter) {
+        firstCounter = firstCounter;
     }
 
-    public int getOtherCounter() {
+    int getOtherCounter() {
         return otherCounter;
     }
 
-    public void setOtherCounter(int otherCounter) {
+    void setOtherCounter(int otherCounter) {
         this.otherCounter = otherCounter;
     }
 
