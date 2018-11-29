@@ -15,8 +15,8 @@ public class Game {
         this.otherCounter = otherCounter;
     }
 
-    private int firstCounter = 0;
-    private int otherCounter = 0;
+    private static int firstCounter = 0;
+    private static int otherCounter = 0;
     private static Game instance = null;
 
     private Game(){
@@ -31,6 +31,11 @@ public class Game {
     }
 
     public static void main(String[] args) {
+        startGame();
+
+    }
+
+    static void startGame() {
         Field f1 = new Field();
         Field f2 = new Field();
         Field f3 = new Field();
@@ -115,32 +120,20 @@ public class Game {
 
         f16.addNeighboor(Direction.LEFT, f15);
         f16.addNeighboor(Direction.UP, f12);
-
+        First first = new First(f1);
         Other other = new Other(f2);
+        System.out.println(otherCounter);
+        System.out.println(firstCounter);
         IceCube i1 = new IceCube(f5);
         IceCube i2 = new IceCube(f7);
         IceCube i3 = new IceCube(f10);
         IceCube i4 = new IceCube(f3);
 //        Boulder b1 = new Boulder(f3);
-        other.movePlayer(Direction.DOWN);
+        other.movePlayer(Direction.LEFT);
         i4.move(Direction.LEFT);
-
-    }
-
-    void startGame() {
-
     }
 
     void endGame() {
-
+        System.out.println(otherCounter>firstCounter?"The game has ended others won":"The game has ended, firsts won!");
     }
-
-    void addPlayer(Player player){
-        player.incraseUnitCounter();
-    }
-
-
-
-    void addFirst(){}
-
 }

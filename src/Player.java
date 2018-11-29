@@ -16,5 +16,6 @@ public abstract class Player extends Thing {
         isParalyzed = false;
     }
 
-    public abstract void incraseUnitCounter();
+    public abstract void increaseUnitCounter();
+    public abstract void decreaseUnitCounter();
 }
